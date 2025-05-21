@@ -4,4 +4,5 @@ public class UsuarioJaExisteException extends RuntimeException {
     public UsuarioJaExisteException(String message) {
         super("Já existe um usuário com o e-mail "+ message);
     }
+
 }

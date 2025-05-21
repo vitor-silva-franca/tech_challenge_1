@@ -21,4 +21,5 @@ public class LoginUsuarioRequest {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }

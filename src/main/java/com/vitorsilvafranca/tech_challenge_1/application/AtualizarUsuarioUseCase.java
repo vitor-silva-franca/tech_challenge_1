@@ -51,4 +51,5 @@ public class AtualizarUsuarioUseCase {
 
         return usuarioRepository.save(existente);
     }
+
 }

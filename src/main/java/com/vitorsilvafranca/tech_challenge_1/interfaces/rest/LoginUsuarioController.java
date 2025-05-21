@@ -47,4 +47,5 @@ public class LoginUsuarioController {
         String resposta = loginUsuarioUseCase.login(usuario);
         return ResponseEntity.status(HttpStatus.OK).body(resposta);
     }
+
 }

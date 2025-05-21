@@ -48,4 +48,5 @@ public class CriarUsuarioController {
         UsuarioResponse response = UsuarioMapper.fromModel(usuarioCriado);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
 }

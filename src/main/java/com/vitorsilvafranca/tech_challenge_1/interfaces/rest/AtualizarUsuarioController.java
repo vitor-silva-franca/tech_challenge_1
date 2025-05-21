@@ -44,4 +44,5 @@ public class AtualizarUsuarioController {
         Usuario atualizado = atualizarUsuarioUseCase.atualizar(id, UsuarioMapper.toModel(request));
         return ResponseEntity.ok(UsuarioMapper.fromModel(atualizado));
     }
+
 }

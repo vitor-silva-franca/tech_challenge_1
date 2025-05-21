@@ -31,4 +31,5 @@ public class TrocarSenhaRequest {
     public void setSenhaNova(String senhaNova) {
         this.senhaNova = senhaNova;
     }
+
 }

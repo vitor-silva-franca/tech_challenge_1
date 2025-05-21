@@ -39,4 +39,5 @@ public class DeletarUsuarioController {
         deletarUsuarioUseCase.deletar(id);
         return ResponseEntity.noContent().build();
     }
+
 }

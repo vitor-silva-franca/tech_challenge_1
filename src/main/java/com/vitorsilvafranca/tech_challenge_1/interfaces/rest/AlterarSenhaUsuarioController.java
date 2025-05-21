@@ -45,4 +45,5 @@ public class AlterarSenhaUsuarioController {
         String resposta = alterarSenhaUsuarioUseCase.alterar(usuario);
         return ResponseEntity.status(HttpStatus.OK).body(resposta);
     }
+
 }

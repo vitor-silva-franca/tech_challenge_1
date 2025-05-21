@@ -8,6 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface UsuarioRepositoryJpa extends UsuarioRepository, JpaRepository<Usuario, Long> {
+
     public Optional<Usuario> findById(Long id);
     Optional<Usuario> findByEmail(String email);
     Optional<Usuario> findByLogin(String login);
@@ -15,4 +16,5 @@ public interface UsuarioRepositoryJpa extends UsuarioRepository, JpaRepository<U
     public boolean existsByLogin(String login);
     public Usuario save(Usuario u);
     public void deleteById(Long id);
+
 }

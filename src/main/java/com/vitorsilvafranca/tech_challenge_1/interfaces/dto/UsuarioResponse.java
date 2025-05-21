@@ -39,4 +39,5 @@ public class UsuarioResponse {
     public String getEndereco() {
         return endereco;
     }
+
 }

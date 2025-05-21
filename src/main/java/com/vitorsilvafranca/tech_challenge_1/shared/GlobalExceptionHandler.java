@@ -62,4 +62,5 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleGeneralException(Exception ex) {
         return new ResponseEntity<>(new ErrorResponse(LocalDateTime.now(), HttpStatus.INTERNAL_SERVER_ERROR.value(), "Erro interno no servidor"), HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
 }

@@ -175,4 +175,5 @@ public class Usuario {
     public void setRole(RoleUsuario role) {
         this.role = role;
     }
+
 }

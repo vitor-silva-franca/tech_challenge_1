@@ -22,4 +22,5 @@ public class BuscarUsuarioUseCase {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new UsuarioNotFoundException(id.toString()));
     }
+
 }

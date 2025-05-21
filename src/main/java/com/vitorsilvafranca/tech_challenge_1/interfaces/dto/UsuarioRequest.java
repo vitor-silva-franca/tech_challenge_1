@@ -92,4 +92,5 @@ public class UsuarioRequest {
     public void setRole(RoleUsuario role) {
         this.role = role;
     }
+
 }
