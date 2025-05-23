@@ -5,8 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -48,6 +51,16 @@ public class GlobalExceptionHandler {
             return new ResponseEntity<>(new ErrorResponse(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), msg), HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(new ErrorResponse(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), "Erro ao interpretar o JSON"), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<String> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        return ResponseEntity.badRequest().body("ID inválido. Informe um ID na URL.");
+    }
+
+    @ExceptionHandler(MissingPathVariableException.class)
+    public ResponseEntity<String> handleMissingPathVariable(MissingPathVariableException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Path variable is missing: " + ex.getVariableName());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

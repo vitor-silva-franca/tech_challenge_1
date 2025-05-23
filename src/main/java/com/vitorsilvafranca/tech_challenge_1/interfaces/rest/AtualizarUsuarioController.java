@@ -28,6 +28,7 @@ public class AtualizarUsuarioController {
 
     /**
      * Atualiza um usuário pelo ID
+     *
      * @param id
      * @param request
      * @return
@@ -40,7 +41,7 @@ public class AtualizarUsuarioController {
             @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioResponse> atualizar(@PathVariable Long id, @Valid @RequestBody UsuarioRequest request) {
+    public ResponseEntity<UsuarioResponse> atualizar(@PathVariable(required = true) Long id, @Valid @RequestBody UsuarioRequest request) {
         Usuario atualizado = atualizarUsuarioUseCase.atualizar(id, UsuarioMapper.toModel(request));
         return ResponseEntity.ok(UsuarioMapper.fromModel(atualizado));
     }

@@ -25,6 +25,7 @@ public class DeletarUsuarioController {
 
     /**
      * Deleta um usuário pelo ID
+     *
      * @param id
      * @return
      */
@@ -35,7 +36,7 @@ public class DeletarUsuarioController {
             @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
     })
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable(required = true) Long id) {
         deletarUsuarioUseCase.deletar(id);
         return ResponseEntity.noContent().build();
     }

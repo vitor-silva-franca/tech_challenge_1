@@ -29,6 +29,7 @@ public class AlterarSenhaUsuarioController {
 
     /**
      * Alterar a senha de um usuário
+     *
      * @param request
      * @return
      */

@@ -29,6 +29,7 @@ public class BuscarUsuarioController {
 
     /**
      * Busca um usuário pelo ID
+     *
      * @param id
      * @return
      */
@@ -39,7 +40,8 @@ public class BuscarUsuarioController {
             @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioResponse> buscar(@PathVariable Long id) {
+    public ResponseEntity<UsuarioResponse> buscar(@PathVariable(required = true) Long id) {
+        System.out.println(id);
         Usuario usuario = buscarUsuarioUseCase.buscarPorId(id);
         return ResponseEntity.ok(UsuarioMapper.fromModel(usuario));
     }
