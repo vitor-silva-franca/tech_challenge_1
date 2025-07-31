@@ -1,6 +1,7 @@
 package com.vitorsilvafranca.tech_challenge_1.shared;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.time.LocalDateTime;
 
 public class ErrorResponse {
@@ -31,5 +32,4 @@ public class ErrorResponse {
     public String getMensagem() {
         return mensagem;
     }
-
 }
