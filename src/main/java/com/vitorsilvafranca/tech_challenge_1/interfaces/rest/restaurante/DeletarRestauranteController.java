@@ -1,6 +1,7 @@
 package com.vitorsilvafranca.tech_challenge_1.interfaces.rest.restaurante;
 
 import com.vitorsilvafranca.tech_challenge_1.application.restaurante.DeletarRestauranteUseCase;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/deletarRestaurante")
+@Tag(name = "Deletar Restaurante pelo ID", description = "Remoção de restaurantes")
 public class DeletarRestauranteController {
 
     private final DeletarRestauranteUseCase deletarRestauranteUseCase;

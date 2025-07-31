@@ -4,6 +4,7 @@ import com.vitorsilvafranca.tech_challenge_1.application.usuario.AlterarSenhaUsu
 import com.vitorsilvafranca.tech_challenge_1.domain.model.usuario.Usuario;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.dto.usuario.TrocarSenhaRequest;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.mapper.UsuarioMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/alterarSenhaUsuario")
+@Tag(name = "Alterar Senha de Usuário", description = "Endpoint para alteração de senha do usuário")
 public class AlterarSenhaUsuarioController {
 
     private final AlterarSenhaUsuarioUseCase alterarSenhaUsuarioUseCase;

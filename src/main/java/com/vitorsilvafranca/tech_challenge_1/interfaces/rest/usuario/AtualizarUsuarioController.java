@@ -5,6 +5,7 @@ import com.vitorsilvafranca.tech_challenge_1.domain.model.usuario.Usuario;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.dto.usuario.UsuarioRequest;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.dto.usuario.UsuarioResponse;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.mapper.UsuarioMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/atualizarUsuario")
+@Tag(name = "Atualizar Usuário", description = "Endpoint para atualização de usuários")
 public class AtualizarUsuarioController {
 
     private final AtualizarUsuarioUseCase atualizarUsuarioUseCase;

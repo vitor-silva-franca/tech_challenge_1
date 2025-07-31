@@ -5,6 +5,7 @@ import com.vitorsilvafranca.tech_challenge_1.domain.model.usuario.Usuario;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.dto.usuario.UsuarioRequest;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.dto.usuario.UsuarioResponse;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.mapper.UsuarioMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/criarUsuario")
+@Tag(name = "Criar Usuário", description = "Endpoint para criação de usuários")
 public class CriarUsuarioController {
 
     private final CriarUsuarioUseCase criarUsuarioUseCase;

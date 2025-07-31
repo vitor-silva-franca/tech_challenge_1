@@ -4,6 +4,7 @@ import com.vitorsilvafranca.tech_challenge_1.application.cardapio.BuscarItemUseC
 import com.vitorsilvafranca.tech_challenge_1.domain.model.cardapio.Item;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.dto.item.ItemResponse;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.mapper.ItemMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/buscarItem")
+@Tag(name = "Buscar Item", description = "Endpoint para busca de itens do cardápio")
 public class BuscarItemController {
 
     private final BuscarItemUseCase buscarItemUseCase;
