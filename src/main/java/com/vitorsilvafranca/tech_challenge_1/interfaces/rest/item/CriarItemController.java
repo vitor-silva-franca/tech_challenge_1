@@ -17,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/criarItem")
-@Tag(name = "Criar Item", description = "Endpoint para criação de itens do cardápio")
+@Tag(name = "Criar Item", description = "Criação de itens do cardápio")
 public class CriarItemController {
 
     private final CriarItemUseCase criarItemUseCase;

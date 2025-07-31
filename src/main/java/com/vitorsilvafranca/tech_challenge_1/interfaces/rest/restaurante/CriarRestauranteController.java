@@ -17,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/criarRestaurante")
-@Tag(name = "Criar Restaurante", description = "Endpoint para criação de restaurantes")
+@Tag(name = "Criar Restaurante", description = "Criação de restaurantes")
 public class CriarRestauranteController {
 
     private final CriarRestauranteUseCase criarRestauranteUseCase;

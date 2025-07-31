@@ -16,7 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/alterarSenhaUsuario")
-@Tag(name = "Alterar Senha de Usuário", description = "Endpoint para alteração de senha do usuário")
+@Tag(name = "Alterar Senha de Usuário", description = "Alteração de senha do usuário")
 public class AlterarSenhaUsuarioController {
 
     private final AlterarSenhaUsuarioUseCase alterarSenhaUsuarioUseCase;

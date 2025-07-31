@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/buscarUsuario")
-@Tag(name = "Buscar Usuário", description = "Endpoint para busca de usuários")
+@Tag(name = "Buscar Usuário", description = "Buscar usuários")
 public class BuscarUsuarioController {
 
     private final BuscarUsuarioUseCase buscarUsuarioUseCase;

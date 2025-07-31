@@ -14,7 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/atualizarUsuario")
-@Tag(name = "Atualizar Usuário", description = "Endpoint para atualização de usuários")
+@Tag(name = "Atualizar Usuário", description = "Atualização de usuários")
 public class AtualizarUsuarioController {
 
     private final AtualizarUsuarioUseCase atualizarUsuarioUseCase;

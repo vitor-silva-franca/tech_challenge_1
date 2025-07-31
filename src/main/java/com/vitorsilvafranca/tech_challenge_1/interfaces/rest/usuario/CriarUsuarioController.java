@@ -17,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/criarUsuario")
-@Tag(name = "Criar Usuário", description = "Endpoint para criação de usuários")
+@Tag(name = "Criar Usuário", description = "Criação de usuários")
 public class CriarUsuarioController {
 
     private final CriarUsuarioUseCase criarUsuarioUseCase;

@@ -14,7 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/atualizarItem")
-@Tag(name = "Atualizar Item", description = "Endpoint para atualização de itens do cardápio")
+@Tag(name = "Atualizar Item", description = "Atualização de itens do cardápio")
 public class AtualizarItemController {
 
     private final AtualizarItemUseCase atualizarItemUseCase;
