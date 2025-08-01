@@ -1,6 +1,6 @@
 # 🚀 FIAP Tech Challenge
 
-Este projeto foi desenvolvido como parte do Tech Challenge da FIAP. Ele simula um sistema de gerenciamento de usuários, seguindo os princípios da Clean Architecture e Domain-Driven Design (DDD).
+Este projeto foi desenvolvido como parte do Tech Challenge da FIAP. Ele simula um sistema de gestão de restaurantes e pedidos, seguindo os princípios da Clean Architecture e Domain-Driven Design (DDD).
 
 ---
 
