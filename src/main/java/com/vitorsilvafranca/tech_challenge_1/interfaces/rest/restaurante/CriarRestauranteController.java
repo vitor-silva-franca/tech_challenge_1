@@ -28,13 +28,9 @@ public class CriarRestauranteController {
 
     @PostMapping
     public ResponseEntity<RestauranteResponse> criar(@Valid @RequestBody RestauranteRequest request) {
-        try {
-            Restaurante restaurante = RestauranteMapper.toModel(request);
-            Restaurante restauranteCriado = criarRestauranteUseCase.criar(restaurante);
-            RestauranteResponse response = RestauranteMapper.fromModel(restauranteCriado);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao criar restaurante: " + e.getMessage());
-        }
+        Restaurante restaurante = RestauranteMapper.toModel(request);
+        Restaurante restauranteCriado = criarRestauranteUseCase.criar(restaurante);
+        RestauranteResponse response = RestauranteMapper.fromModel(restauranteCriado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

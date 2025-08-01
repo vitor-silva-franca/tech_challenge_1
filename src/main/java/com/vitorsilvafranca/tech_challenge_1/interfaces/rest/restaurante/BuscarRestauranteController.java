@@ -26,13 +26,7 @@ public class BuscarRestauranteController {
 
     @GetMapping("/{id}")
     public ResponseEntity<RestauranteResponse> buscar(@PathVariable(required = true) Long id) {
-        try {
-            Restaurante restaurante = buscarRestauranteUseCase.buscarPorId(id);
-            return ResponseEntity.ok(RestauranteMapper.fromModel(restaurante));
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Restaurante não encontrado: " + e.getMessage());
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao buscar restaurante: " + e.getMessage());
-        }
+        Restaurante restaurante = buscarRestauranteUseCase.buscarPorId(id);
+        return ResponseEntity.ok(RestauranteMapper.fromModel(restaurante));
     }
 }

@@ -28,13 +28,9 @@ public class CriarUsuarioController {
 
     @PostMapping
     public ResponseEntity<UsuarioResponse> criar(@Valid @RequestBody UsuarioRequest request) {
-        try {
             Usuario usuario = UsuarioMapper.toModel(request);
             Usuario usuarioCriado = criarUsuarioUseCase.criar(usuario);
             UsuarioResponse response = UsuarioMapper.fromModel(usuarioCriado);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao criar usuário: " + e.getMessage());
-        }
     }
 }

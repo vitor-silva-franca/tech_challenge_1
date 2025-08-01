@@ -25,13 +25,7 @@ public class AtualizarUsuarioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioResponse> atualizar(@PathVariable(required = true) Long id, @Valid @RequestBody UsuarioRequest request) {
-        try {
-            Usuario atualizado = atualizarUsuarioUseCase.atualizar(id, UsuarioMapper.toModel(request));
-            return ResponseEntity.ok(UsuarioMapper.fromModel(atualizado));
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado: " + e.getMessage());
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao atualizar usuário: " + e.getMessage());
-        }
+        Usuario atualizado = atualizarUsuarioUseCase.atualizar(id, UsuarioMapper.toModel(request));
+        return ResponseEntity.ok(UsuarioMapper.fromModel(atualizado));
     }
 }

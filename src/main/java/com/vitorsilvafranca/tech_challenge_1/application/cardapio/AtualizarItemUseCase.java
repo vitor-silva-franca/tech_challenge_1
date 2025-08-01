@@ -5,9 +5,12 @@ import com.vitorsilvafranca.tech_challenge_1.domain.model.restaurante.Restaurant
 import com.vitorsilvafranca.tech_challenge_1.domain.repository.ItemRepository;
 import com.vitorsilvafranca.tech_challenge_1.domain.repository.RestauranteRepository;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.dto.item.ItemRequest;
+import com.vitorsilvafranca.tech_challenge_1.shared.ApplicationException;
 import com.vitorsilvafranca.tech_challenge_1.shared.ItemNotFoundException;
 import com.vitorsilvafranca.tech_challenge_1.shared.RestauranteNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @Service
 public class AtualizarItemUseCase {
@@ -26,6 +29,10 @@ public class AtualizarItemUseCase {
 
         Restaurante restaurante = restauranteRepository.findById(request.getRestauranteId())
                 .orElseThrow(() -> new RestauranteNotFoundException("Restaurante não encontrado"));
+
+        if (request.getPreco() != null && request.getPreco().compareTo(BigDecimal.ZERO) == 0) {
+            throw new ApplicationException("Preço do item não pode ser zero");
+        }
 
         item.setNome(request.getNome());
         item.setDescricao(request.getDescricao());

@@ -25,15 +25,10 @@ public class LoginUsuarioController {
         this.loginUsuarioUseCase = loginUsuarioUseCase;
     }
 
-
     @PostMapping
     public ResponseEntity<String> login(@Valid @RequestBody LoginUsuarioRequest request) {
-        try {
-            Usuario usuario = UsuarioMapper.toLogin(request);
-            String resposta = loginUsuarioUseCase.login(usuario);
-            return ResponseEntity.status(HttpStatus.OK).body(resposta);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro no login: " + e.getMessage());
-        }
+        Usuario usuario = UsuarioMapper.toLogin(request);
+        String resposta = loginUsuarioUseCase.login(usuario);
+        return ResponseEntity.status(HttpStatus.OK).body(resposta);
     }
 }

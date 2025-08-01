@@ -23,9 +23,9 @@ public class SwaggerConfig {
     public OpenAPI springOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("FIAP - Tech Challenge - Fase 1 de Arquitetura e Desenvolvimento Java")
-                        .description("API desenvolvida para o Tech Challenge da Fase 1 de 5.\n\n" +
-                                "Esta aplicação simula um sistema de gerenciamento de usuários " +
+                        .title("FIAP - Tech Challenge - Fase 2 de Arquitetura e Desenvolvimento Java")
+                        .description("API desenvolvida para o Tech Challenge da Fase 2 de 5.\n\n" +
+                                "Esta aplicação simula um sistema de gestão de restaurantes e pedidos " +
                                 "seguindo princípios de Clean Architecture, DDD e boas práticas com Java, Spring Boot e PostgreSQL.")
                         .version("v1")
                         .contact(new Contact()

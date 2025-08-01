@@ -23,11 +23,7 @@ public class DeletarRestauranteController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable(required = true) Long id) {
-        try {
-            deletarRestauranteUseCase.deletar(id);
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Restaurante não encontrado", e);
-        }
+        deletarRestauranteUseCase.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 }

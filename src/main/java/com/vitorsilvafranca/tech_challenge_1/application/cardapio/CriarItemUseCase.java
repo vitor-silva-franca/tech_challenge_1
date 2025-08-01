@@ -6,8 +6,11 @@ import com.vitorsilvafranca.tech_challenge_1.domain.repository.ItemRepository;
 import com.vitorsilvafranca.tech_challenge_1.domain.repository.RestauranteRepository;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.dto.item.ItemRequest;
 import com.vitorsilvafranca.tech_challenge_1.interfaces.mapper.ItemMapper;
+import com.vitorsilvafranca.tech_challenge_1.shared.ApplicationException;
 import com.vitorsilvafranca.tech_challenge_1.shared.RestauranteNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @Service
 public class CriarItemUseCase {
@@ -23,6 +26,9 @@ public class CriarItemUseCase {
     public Item criar(ItemRequest request) {
         Restaurante restaurante = restauranteRepository.findById(request.getRestauranteId())
                 .orElseThrow(() -> new RestauranteNotFoundException("Restaurante não encontrado"));
+        if (request.getPreco() != null && request.getPreco().compareTo(BigDecimal.ZERO) == 0) {
+            throw new ApplicationException("Preço do item não pode ser zero");
+        }
         Item item = ItemMapper.toModel(request, restaurante);
         return itemRepository.save(item);
     }

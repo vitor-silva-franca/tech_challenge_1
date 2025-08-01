@@ -26,13 +26,7 @@ public class BuscarItemController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ItemResponse> buscar(@PathVariable(required = true) Long id) {
-        try {
-            Item item = buscarItemUseCase.buscarPorId(id);
-            return ResponseEntity.ok(ItemMapper.fromModel(item));
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item não encontrado: " + e.getMessage());
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao buscar item: " + e.getMessage());
-        }
+        Item item = buscarItemUseCase.buscarPorId(id);
+        return ResponseEntity.ok(ItemMapper.fromModel(item));
     }
 }

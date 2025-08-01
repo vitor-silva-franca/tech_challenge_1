@@ -28,12 +28,8 @@ public class CriarItemController {
 
     @PostMapping
     public ResponseEntity<ItemResponse> criar(@Valid @RequestBody ItemRequest request) {
-        try {
-            Item itemCriado = criarItemUseCase.criar(request);
-            ItemResponse response = ItemMapper.fromModel(itemCriado);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao criar item: " + e.getMessage());
-        }
+        Item itemCriado = criarItemUseCase.criar(request);
+        ItemResponse response = ItemMapper.fromModel(itemCriado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

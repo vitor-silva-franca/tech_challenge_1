@@ -26,13 +26,7 @@ public class BuscarUsuarioController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioResponse> buscar(@PathVariable(required = true) Long id) {
-        try {
-            Usuario usuario = buscarUsuarioUseCase.buscarPorId(id);
-            return ResponseEntity.ok(UsuarioMapper.fromModel(usuario));
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado: " + e.getMessage());
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao buscar usuário: " + e.getMessage());
-        }
+        Usuario usuario = buscarUsuarioUseCase.buscarPorId(id);
+        return ResponseEntity.ok(UsuarioMapper.fromModel(usuario));
     }
 }

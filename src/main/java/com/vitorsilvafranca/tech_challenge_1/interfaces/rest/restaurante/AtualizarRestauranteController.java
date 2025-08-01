@@ -25,13 +25,7 @@ public class AtualizarRestauranteController {
 
     @PutMapping("/{id}")
     public ResponseEntity<RestauranteResponse> atualizar(@PathVariable(required = true) Long id, @Valid @RequestBody RestauranteRequest request) {
-        try {
-            Restaurante atualizado = atualizarRestauranteUseCase.atualizar(id, RestauranteMapper.toModel(request));
-            return ResponseEntity.ok(RestauranteMapper.fromModel(atualizado));
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Restaurante não encontrado: " + e.getMessage());
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao atualizar restaurante: " + e.getMessage());
-        }
+        Restaurante atualizado = atualizarRestauranteUseCase.atualizar(id, RestauranteMapper.toModel(request));
+        return ResponseEntity.ok(RestauranteMapper.fromModel(atualizado));
     }
 }

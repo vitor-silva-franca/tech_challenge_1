@@ -28,14 +28,8 @@ public class AlterarSenhaUsuarioController {
 
     @PutMapping
     public ResponseEntity<String> alterar(@Valid @RequestBody TrocarSenhaRequest request) {
-        try {
-            Usuario usuario = UsuarioMapper.toSenhaNova(request);
-            String resposta = alterarSenhaUsuarioUseCase.alterar(usuario);
-            return ResponseEntity.status(HttpStatus.OK).body(resposta);
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado: " + e.getMessage());
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao atualizar senha do usuário: " + e.getMessage());
-        }
+        Usuario usuario = UsuarioMapper.toSenhaNova(request);
+        String resposta = alterarSenhaUsuarioUseCase.alterar(usuario);
+        return ResponseEntity.status(HttpStatus.OK).body(resposta);
     }
 }

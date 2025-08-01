@@ -23,11 +23,7 @@ public class DeletarUsuarioController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable(required = true) Long id) {
-        try {
-            deletarUsuarioUseCase.deletar(id);
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erro ao deletar usuário: " + e.getMessage());
-        }
+        deletarUsuarioUseCase.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 }
